@@ -6,7 +6,6 @@ class Target:
 
     def __init__(self):
         self.capture = cv.CaptureFromCAM(0)
-        cv.NamedWindow("Target", 1)
 
     def run(self):
         maxSize = cv.GetCaptureProperty(self.capture, cv.CV_CAP_PROP_FRAME_WIDTH) * cv.GetCaptureProperty(self.capture, cv.CV_CAP_PROP_FRAME_HEIGHT)
@@ -93,13 +92,6 @@ class Target:
 
             if movement_count > 50:
                 print "OK"
-
-            cv.ShowImage("Target", color_image)
-
-            # Listen for ESC key
-            c = cv.WaitKey(7) % 0x100
-            if c == 27:
-                break
 
 if __name__=="__main__":
     t = Target()
