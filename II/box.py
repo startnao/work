@@ -1,4 +1,5 @@
 import cv
+from naoqi import ALProxy
 
 class MyClass(GeneratedClass):
     def __init__(self):
@@ -6,7 +7,7 @@ class MyClass(GeneratedClass):
 
     def onLoad(self):
         self.capture = cv.CaptureFromCAM(0)
-        
+
     def onUnload(self):
         pass
 
@@ -14,6 +15,8 @@ class MyClass(GeneratedClass):
         self.bIsRunning = True
 
         maxSize = cv.GetCaptureProperty(self.capture, cv.CV_CAP_PROP_FRAME_WIDTH) * cv.GetCaptureProperty(self.capture, cv.CV_CAP_PROP_FRAME_HEIGHT)
+
+        tts = ALProxy("ALTextToSpeech")
 
         # Capture first frame to get size
         frame = cv.QueryFrame(self.capture)
@@ -86,18 +89,19 @@ class MyClass(GeneratedClass):
             if not counting and max_percentage > 75:
                 movement_count = 0
                 counting = True
-                print "Demarrage comptage"
+                tts.say("Starting")
             elif counting and max_percentage > 50:
                 movement_count += 1
-                print "Incrementation"
+                tts.say("Increment")
             elif max_percentage < 20:
                 movement_count = 0
                 counting = False
-                print "Fin comptage"
+                tts.say("Ending")
 
             if movement_count > 50:
-                self.onStopped() # activate output of the box
+                self.onStopped()
                 self.bIsRunning = False
+                break
 
     def onInput_onStop(self):
         self.onUnload()
