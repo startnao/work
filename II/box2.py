@@ -20,7 +20,7 @@ class MyClass(GeneratedClass):
 
         # Capture first frame to get size
         frame = cv.QueryFrame(self.capture)
-        frame_size = cv.GetSize(frame)---
+        frame_size = cv.GetSize(frame)
         color_image = cv.CreateImage(cv.GetSize(frame), 8, 3)
         grey_image = cv.CreateImage(cv.GetSize(frame), cv.IPL_DEPTH_8U, 1)
         moving_average = cv.CreateImage(cv.GetSize(frame), cv.IPL_DEPTH_32F, 3)
@@ -29,14 +29,8 @@ class MyClass(GeneratedClass):
 
         counting = False
         movement_count = 0
-<<<<<<< HEAD
-        i=0
-
-        while i<50:         #Nombre de frames pas définitif ( 50 au début, modifié à 200 pour les tests)
-=======
 		i=0
         while i<200:
->>>>>>> e57e4309d4db5d70b5b62fa8b7ba76157a0c447d
             closest_to_left = cv.GetSize(frame)[0]
             closest_to_right = cv.GetSize(frame)[1]
 
@@ -92,38 +86,22 @@ class MyClass(GeneratedClass):
                 points.append(pt2)
                 cv.Rectangle(color_image, pt1, pt2, cv.CV_RGB(255,0,0), 1)
 
-<<<<<<< HEAD
-            if not counting and max_percentage > 65:    # max_percentage non définitif, 75 testé sur webcam et OK
-=======
             if not counting and max_percentage > 65:
->>>>>>> e57e4309d4db5d70b5b62fa8b7ba76157a0c447d
                 movement_count = 0
                 counting = True
-                tts.say("Starting")     # Facultatif (indice de début)
+                tts.say("Starting")
             elif counting and max_percentage > 20:
                 movement_count += 1
-                tts.say("Increment")    # Facultatif (indice d'incrémentation)
             elif max_percentage < 20:
                 movement_count = 0
                 counting = False
-<<<<<<< HEAD
-                tts.say("Ending")     # Facultatif (indice de fin)
-=======
->>>>>>> e57e4309d4db5d70b5b62fa8b7ba76157a0c447d
 
             if movement_count > 50:
                 self.onStopped()
                 self.bIsRunning = False
                 break
-<<<<<<< HEAD
-            i+=1
-        self.onStopped()
-        self.bIsRunning = False 
-
-=======
 			i+=1
 		self.onStopped()
 		self.bIsRunning = False
->>>>>>> e57e4309d4db5d70b5b62fa8b7ba76157a0c447d
     def onInput_onStop(self):
         self.onUnload()
