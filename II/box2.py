@@ -29,9 +29,8 @@ class MyClass(GeneratedClass):
 
         counting = False
         movement_count = 0
-        i=0
-
-        while i<50:
+		i=0
+        while i<200:
             closest_to_left = cv.GetSize(frame)[0]
             closest_to_right = cv.GetSize(frame)[1]
 
@@ -87,7 +86,7 @@ class MyClass(GeneratedClass):
                 points.append(pt2)
                 cv.Rectangle(color_image, pt1, pt2, cv.CV_RGB(255,0,0), 1)
 
-            if not counting and max_percentage > 75:
+            if not counting and max_percentage > 65:
                 movement_count = 0
                 counting = True
                 tts.say("Starting")
@@ -96,12 +95,13 @@ class MyClass(GeneratedClass):
             elif max_percentage < 20:
                 movement_count = 0
                 counting = False
-                tts.say("Ending")
 
             if movement_count > 50:
                 self.onStopped()
                 self.bIsRunning = False
                 break
 			i+=1
+		self.onStopped()
+		self.bIsRunning = False
     def onInput_onStop(self):
         self.onUnload()
