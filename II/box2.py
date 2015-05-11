@@ -29,8 +29,8 @@ class MyClass(GeneratedClass):
 
         counting = False
         movement_count = 0
-		
-		i=0
+        i=0
+
         while i<50:
             closest_to_left = cv.GetSize(frame)[0]
             closest_to_right = cv.GetSize(frame)[1]
