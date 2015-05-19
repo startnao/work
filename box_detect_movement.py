@@ -1,25 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<ChoregrapheProject xmlns="http://www.aldebaran-robotics.com/schema/choregraphe/project.xsd" xar_version="3">
-    <Box name="root" id="-1" localization="8" tooltip="Root box of Choregraphe&apos;s behavior. Highest level possible." x="0" y="0">
-        <bitmap>media/images/box/root.png</bitmap>
-        <script language="4">
-            <content>
-                <![CDATA[]]>
-</content>
-        </script>
-        <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-        <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-        <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-        <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-        <Timeline enable="0">
-            <BehaviorLayer name="behavior_layer1">
-                <BehaviorKeyframe name="keyframe1" index="1">
-                    <Diagram>
-                        <Box name="Camera" id="1" localization="8" tooltip="" x="569" y="28">
-                            <bitmap>media/images/box/box-python-script.png</bitmap>
-                            <script language="4">
-                                <content>
-                                    <![CDATA[#
+#
 # Cette box est une box plus complète basée sur la box de base de récupération d'une image
 # (box_get_image.py) qui en plus analyse l'image avec OpenCV
 #
@@ -127,13 +106,18 @@ class MyClass(GeneratedClass):
 
 
         ####### Boucle
-        colorImage = self.getImageFromCamera()
+        colorRawImage = self.getImageFromCamera()
+        colorRawImage = colorRawImage
+        colorRawImage.flags['WRITEABLE'] = True
+
+        colorCvImage = cv.fromarray(colorRawImage);
+
 
         # Smooth to get rid of false positives
-        # cv.Smooth(colorImage, colorImage, cv.CV_GAUSSIAN, 3, 0)
+        cv.Smooth(colorCvImage, colorCvImage, cv.CV_GAUSSIAN, 3, 0)
 
-        bitmap = cv.CreateImageHeader((colorImage.shape[1], colorImage.shape[0]), cv.IPL_DEPTH_8U, 3)
-        cv.SetData(bitmap, colorImage.tostring(), colorImage.dtype.itemsize * 3 * colorImage.shape[1])
+        bitmap = cv.CreateImageHeader((colorCvImage.shape[1], colorCvImage.shape[0]), cv.IPL_DEPTH_8U, 3)
+        cv.SetData(bitmap, colorCvImage.tostring(), colorCvImage.dtype.itemsize * 3 * colorCvImage.shape[1])
 
         difference = cv.CloneImage(bitmap)
         temp = cv.CloneImage(bitmap)
@@ -164,19 +148,4 @@ class MyClass(GeneratedClass):
             area = boundRect[3] * boundRect[2]
             percentage = (area / maxSize) * 100
 
-            self.log("STARTNAO: Percentage: %s" % percentage)]]>
-</content>
-                            </script>
-                            <Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" />
-                            <Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" />
-                            <Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" />
-                            <Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" />
-                        </Box>
-                        <Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" />
-                        <Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" />
-                    </Diagram>
-                </BehaviorKeyframe>
-            </BehaviorLayer>
-        </Timeline>
-    </Box>
-</ChoregrapheProject>
+            self.log("STARTNAO: Percentage: %s" % percentage)
