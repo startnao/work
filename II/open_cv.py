@@ -12,8 +12,6 @@ class Target:
 
         # Capture first frame to get size
         frame = cv.QueryFrame(self.capture)
-        frame_size = cv.GetSize(frame)
-        color_image = cv.CreateImage(cv.GetSize(frame), 8, 3)
         grey_image = cv.CreateImage(cv.GetSize(frame), cv.IPL_DEPTH_8U, 1)
         moving_average = cv.CreateImage(cv.GetSize(frame), cv.IPL_DEPTH_32F, 3)
 
@@ -23,9 +21,6 @@ class Target:
         movement_count = 0
 
         while True:
-            closest_to_left = cv.GetSize(frame)[0]
-            closest_to_right = cv.GetSize(frame)[1]
-
             color_image = cv.QueryFrame(self.capture)
 
             # Smooth to get rid of false positives
