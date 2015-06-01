@@ -3,7 +3,7 @@ var buttons = [
     { node: document.getElementById('button-up'), action: 'forward' },
     { node: document.getElementById('button-left'), action: 'left' },
     { node: document.getElementById('button-right'), action: 'right' },
-    { node: document.getElementById('button-backward'), action: 'backward' }
+    { node: document.getElementById('button-down'), action: 'backward' }
 ];
 
 buttons.forEach(function(button) {
