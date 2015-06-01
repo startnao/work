@@ -160,7 +160,7 @@ class MyClass(GeneratedClass):
     def onInput_onCommandFinished(self,cmd):
         try:
             if cmd[1] == 'camera':
-                self.connectedSocket.sendall(self.getImageFromCamera()+"#image$")
+                self.connectedSocket.sendall(self.getImageFromCamera())
 
             self.connectedSocket.sendall(cmd[0]+"#end$")
 
