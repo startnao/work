@@ -22,21 +22,24 @@
         <div class="text-center">
 
             <h1 class="modal-header">NAO</h1>
-            <div class="btn-group" role="group">
+
+            <img src="../img/test.gif" alt="Camera" height="320" width="480">
+            <br></br>
+            <div class="btn-top" role="group">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-up"></span></button>
             </div>
-            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group" aria-label="...">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-left"></span></button>
                 </div>
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-default">Middle</button>
-                </div>
+
+                <div class="btn-group block role="group"></div>
+
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-right"></span></button>
                 </div>
             </div>
-            <div class="btn-group" role="group">
+            <div class="btn-top" role="group">
                 <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-menu-down"></span></button>
             </div>
         </div>
