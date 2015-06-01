@@ -19,4 +19,5 @@ from main.views import *
 urlpatterns = [
     url(r'^$', index_action, name='index'),
     url(r'^action/(?P<name>[a-z]+)/$', execute_action, name='action'),
+    url(r'^image/$', image_action, name='image'),
 ]
