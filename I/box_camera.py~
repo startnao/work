@@ -1,0 +1,70 @@
+#
+# Box pour récupérer l'image de la caméra
+#
+
+class MyClass(GeneratedClass):
+    def __init__(self):
+        GeneratedClass.__init__(self)
+
+        self.avd = None
+        self.strMyClientName = None
+
+    def onLoad(self):
+        self.connectToCamera()
+        self.getImageFromCamera()
+        self.disconnectFromCamera()
+
+    def onUnload(self):
+        self.avd = None
+        self.strMyClientName = None
+
+    def onInput_onStart(self):
+        #self.onStopped() #activate the output of the box
+        pass
+
+    def onInput_onStop(self):
+        self.onUnload() #it is recommended to reuse the clean-up as the box is stopped
+        self.onStopped() #activate the output of the box
+
+
+    def connectToCamera(self):
+        self.log("STARTNAO: connecting to camera...")
+
+        try:
+            self.avd = ALProxy("ALVideoDevice")
+
+            self.strMyClientName = self.avd.subscribeCamera(
+                # Name              # CameraNum     # Resolution    # Colorspace        # FPS
+                self.getName(),     0,              1,              11,                 5
+            )
+
+            self.log("STARTNAO: connected to camera")
+        except BaseException, err:
+            self.log("STARTNAO: error connecting to camera: %s" % err)
+
+
+    def disconnectFromCamera(self):
+        self.log("STARTNAO: disconnecting from camera...")
+
+        try:
+            self.avd.unsubscribe( self.strMyClientName )
+        except BaseException, err:
+            self.log("STARTNAO: error disconnecting from camera: %s" % err)
+
+        self.log("STARTNAO: disconnected from camera")
+
+
+    def getImageFromCamera(self):
+        self.log("STARTNAO: getting camera image...")
+
+        try:
+            dataImage = self.avd.getImageRemote(self.strMyClientName)
+
+            self.log("STARTNAO: image class: %s" % dataImage[6][:10])
+
+        except BaseException, err:
+            self.log("STARTNAO: error getting camera image: %s" % err)
+
+        self.log("STARTNAO: camera image got")
+
+        return None
