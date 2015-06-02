@@ -9,10 +9,10 @@ def execute_action(request, name):
     parameters = ''
 
     if len(parts) == 2:
-        parameters = '#' + parts[1]
+        parameters = '#' + parts[1].replace('_', ' ')
 
     connection = nao_connect()
-    nao_action(connection, command + parameters)
+    nao_action_udp(connection, command + parameters)
     nao_disconnect(connection)
 
     return HttpResponse(json.dumps({'action': name, 'status': 'ok'}), content_type='application/json')

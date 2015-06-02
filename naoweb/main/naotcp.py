@@ -9,7 +9,10 @@ def nao_connect():
 
     return connection
 
-def nao_action(connection, action):
+def nao_action_udp(connection, action):
+    connection.send('1#%s$' % action)
+
+def nao_action_tcp(connection, action):
     connection.send('1#%s$' % action)
 
     result = ''
