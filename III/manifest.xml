@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="nao4scratch-aefc3a">
+ <names>
+  <name lang="en_US">nao4scratch</name>
+ </names>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="nao4scratch">
+   <nature></nature>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+</package>
