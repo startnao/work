@@ -1,7 +1,7 @@
 import socket
 
-TCP_IP = '127.0.0.1'
-TCP_PORT = 5005
+TCP_IP = '169.254.89.225'
+TCP_PORT = 8080
 
 def nao_connect():
     connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,6 +24,8 @@ def nao_action(connection, action):
 
         if '1#end$' in result or i >= 600:
             break
+
+    result = result[:-6]
 
     return result
 

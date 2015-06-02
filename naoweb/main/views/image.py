@@ -5,7 +5,11 @@ from main.naotcp import *
 
 def image_action(request):
     connection = nao_connect()
-    data = base64.b64decode(nao_action(connection, "camera"))
+    data = nao_action(connection, "camera")
+
+    print(data[0:500])
+
+    data = base64.b64decode(data)
     nao_disconnect(connection)
 
     img = Image.frombytes("RGB", (320, 240), data)
