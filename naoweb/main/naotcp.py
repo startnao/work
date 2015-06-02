@@ -1,6 +1,6 @@
 import socket
 
-TCP_IP = '169.254.89.225'
+TCP_IP = '169.254.39.105'
 TCP_PORT = 8080
 
 def nao_connect():

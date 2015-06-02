@@ -6,7 +6,8 @@ $(function() {
         { node: $('#button-right'), action: 'turnright' },
         { node: $('#button-down'), action: 'movebackward' },
         { node: $('#button-standup'), action: 'standup' },
-        { node: $('#button-sitdown'), action: 'sitdown' }
+        { node: $('#button-sitdown'), action: 'sitdown' },
+        { node: $('#button-riddle'), action: 'riddle' }
     ];
 
     var image = $('#image-camera');
