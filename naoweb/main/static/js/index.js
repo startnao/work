@@ -19,7 +19,7 @@ $(function() {
     };
 
     var say = $('#button-say');
-
+    var actionDisabled = false;
 
     // On load
     refreshImage();
@@ -73,7 +73,8 @@ $(function() {
         if (typeof parameters != 'undefined') {
             cmd += '-' + parameters;
         }
-
+        actionDisabled = true;
+        windows.setTimeout(enableAction, 3000);
         return $.getJSON('/action/' + cmd);
     }
 
@@ -87,8 +88,16 @@ $(function() {
 
         $('#temp').append(newImage);
     }
+
+    function enableAction(){
+        actionDisabled = false;
+    }
     
     function handleOrientation(event) {
+      if(actionDisabled){
+        return;
+      }
+
       var x = event.beta,  // En degré sur l'interval [-180,180].
           y = event.gamma, // En degré sur l'interval [-90,90].
           z = event.alpha; // en degré sur l'interval [0, 360].
