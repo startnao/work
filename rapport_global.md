@@ -7,9 +7,10 @@ I. Introduction (Titouan)
 
 II. Blog (Pierre-Gilles)
     a. Objectifs de la fonctionnalité
-    ...
-    n. Problèmes recontrés
-    n+1. Conclusion : pour aller plus loin
+    b. Les différents systèmes étudiés
+    c. Coder un site nous-même
+    d. Hexo
+    e. Conclusion
 	
 III. Cri / Sifflement (Yani, Lucas, Philippe)
     a. Objectifs de la fonctionnalité
