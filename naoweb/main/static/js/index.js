@@ -87,4 +87,22 @@ $(function() {
 
         $('#temp').append(newImage);
     }
+    
+    function handleOrientation(event) {
+      var x = event.beta,  // En degré sur l'interval [-180,180].
+          y = event.gamma, // En degré sur l'interval [-90,90].
+          z = event.alpha; // en degré sur l'interval [0, 360].
+
+        if(y > 45 ){
+            executeAction("moveforward");
+        }else if(y < -45){
+            executeAction("movebackward");
+        }else if(x < -45){
+            executeAction("turnleft");
+        }else if(x > 45){
+            executeAction("turnright");
+        }
+    }
+
+    window.addEventListener('deviceorientation', handleOrientation);
 });
