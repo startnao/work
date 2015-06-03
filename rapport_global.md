@@ -42,10 +42,11 @@
 ##  f. Conclusion : pour aller plus loin
 
 # VII. Interface Web (Thomas, Romain, Gaëtan)
-## a. Objectifs de la fonctionnalité
-##  ...
-##  n. Problèmes recontrés
-##  n+1. Conclusion : pour aller plus loin
+##  a. Objectifs de la fonctionnalité
+##  b. Implémentation du serveur sur le NAO
+##  c. Implémentation du client Django et récupération de l'image de la caméra
+##  d. Interface Web et interaction mobile
+##  e. Conclusion : pour aller plus loin
 
 # VIII. Démonstration
 
