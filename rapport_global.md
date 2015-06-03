@@ -16,14 +16,14 @@
 ##  a. Objectifs de la fonctionnalité
 ##  b. Implémentation du cri
 ##  c. Implémentation du sifflement
-##  d. Transformation de Fourrier
 ##  e. Conclusion : pour aller plus loin
 
 # IV. Détection de la couleur (Radu, Charles, Aurore)
 ##  a. Objectifs de la fonctionnalité
 ##  b. Implémentation : Python et OpenCV
 ##  c. Intégration avec Chorégraphe
-##  e. Conclusion : pour aller plus loin (forme, volume)
+##  d. Pour aller plus loin (forme, volume)
+##  e. Conclusion
 
 # V. Détection du mouvement (Jeanne, Laurence, Félix)
 ##  a. Objectifs de la fonctionnalité
