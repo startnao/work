@@ -35,13 +35,12 @@
 ##  f. Conclusion : pour aller plus loin
 
 # VI. Enigmes (Raphaël, Adrien, Benjamin)
-## a. Objectifs de la fonctionnalité
-##  b. Mise en place des énigmes
+##  a. Objectifs de la fonctionnalité
+##  b. Principe utilisé pour les énigmes
 ##  c. Mise en place des comportements
-##  d. Les questions
-##  e. La fin du jeu
-##  f. Problèmes recontrés
-##  g. Conclusion : pour aller plus loin
+##  d. Mise en place des énigmes
+##  e. Problèmes rencontrés
+##  f. Conclusion : pour aller plus loin
 
 # VII. Interface Web (Thomas, Romain, Gaëtan)
 ## a. Objectifs de la fonctionnalité
