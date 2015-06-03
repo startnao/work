@@ -8,7 +8,6 @@
         <Dialog name="ExampleDialog" src="behavior_1/ExampleDialog/ExampleDialog.dlg" />
     </Dialogs>
     <Resources>
-        <File name="" src=".metadata" />
         <File name="choice_sentences" src="behavior_1/Aldebaran/choice_sentences.xml" />
         <File name="bnxv" src="bnxv" />
         <File name="activate_choregraphe" src="activate_choregraphe.txt" />
