@@ -74,7 +74,7 @@ $(function() {
             cmd += '-' + parameters;
         }
         actionDisabled = true;
-        windows.setTimeout(enableAction, 3000);
+        setTimeout(enableAction, 3000);
         return $.getJSON('/action/' + cmd);
     }
 
@@ -94,21 +94,21 @@ $(function() {
     }
     
     function handleOrientation(event) {
-      if(actionDisabled){
-        return;
-      }
+        if(actionDisabled){
+            return;
+        }
 
-      var x = event.beta,  // En degré sur l'interval [-180,180].
-          y = event.gamma, // En degré sur l'interval [-90,90].
-          z = event.alpha; // en degré sur l'interval [0, 360].
+        var x = event.beta,  // En degré sur l'interval [-180,180].
+            y = event.gamma, // En degré sur l'interval [-90,90].
+            z = event.alpha; // en degré sur l'interval [0, 360].
 
-        if(y > 45 ){
+        if(x < 30 ){
             executeAction("moveforward");
-        }else if(y < -45){
+        }else if(x > 145){
             executeAction("movebackward");
-        }else if(x < -45){
+        }else if(y < -65){
             executeAction("turnleft");
-        }else if(x > 45){
+        }else if(y > 65){
             executeAction("turnright");
         }
     }
