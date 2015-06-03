@@ -7,11 +7,10 @@
 ##	e. Comment va s'organiser la présentation
 
 # II. Blog (Pierre-Gilles)
-##  a. Objectifs de la fonctionnalité
+##  a. Objectifs
 ##  b. Les différents systèmes étudiés
-##  c. Coder un site nous-même
-##  d. Hexo
-##  e. Conclusion
+##  c. La solution retenue : Hexo
+##  d. Conclusion
 	
 # III. Cri / Sifflement (Yani, Lucas, Philippe)
 ##  a. Objectifs de la fonctionnalité
